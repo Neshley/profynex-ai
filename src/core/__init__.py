@@ -1,6 +1,124 @@
-"""Core module for Profynex AI."""
+"""Core module initialization and exports."""
 
 from .config import Settings, get_config
 from .logger import get_logger, setup_logging
+from .exceptions import (
+    ProfynexException,
+    ConfigurationError,
+    MissingConfigurationError,
+    InvalidConfigurationError,
+    EventError,
+    EventPublishError,
+    EventSubscriptionError,
+    UnknownEventError,
+    ContainerError,
+    ServiceNotFoundError,
+    ServiceResolutionError,
+    DuplicateServiceError,
+    ContextError,
+    ContextNotFoundError,
+    InvalidContextError,
+    PluginError,
+    PluginNotFoundError,
+    PluginLoadError,
+    InvalidPluginError,
+    HealthCheckError,
+    ServiceUnhealthyError,
+    ErrorSeverity,
+)
+from .types import (
+    Event,
+    EventHandler,
+    EventData,
+    IService,
+    ServiceFactory,
+    ServiceLifetime,
+    ContextData,
+    PluginMetadata,
+    IPlugin,
+    HealthStatus,
+    HealthCheckResult,
+    HealthCheck,
+    ConfigValue,
+    LogRecord,
+    Ok,
+    Err,
+    Result,
+)
+from .events import EventBus, get_event_bus, initialize_event_bus
+from .container import Container, get_container, initialize_container
+from .context import (
+    OperationContext,
+    ContextManager,
+    context_scope,
+    get_correlation_id,
+    get_operation_id,
+    get_user_id,
+)
+from .health import get_health_registry
 
-__all__ = ["Settings", "get_config", "get_logger", "setup_logging"]
+__all__ = [
+    # Config & Logging
+    "Settings",
+    "get_config",
+    "get_logger",
+    "setup_logging",
+    # Exceptions
+    "ProfynexException",
+    "ConfigurationError",
+    "MissingConfigurationError",
+    "InvalidConfigurationError",
+    "EventError",
+    "EventPublishError",
+    "EventSubscriptionError",
+    "UnknownEventError",
+    "ContainerError",
+    "ServiceNotFoundError",
+    "ServiceResolutionError",
+    "DuplicateServiceError",
+    "ContextError",
+    "ContextNotFoundError",
+    "InvalidContextError",
+    "PluginError",
+    "PluginNotFoundError",
+    "PluginLoadError",
+    "InvalidPluginError",
+    "HealthCheckError",
+    "ServiceUnhealthyError",
+    "ErrorSeverity",
+    # Types
+    "Event",
+    "EventHandler",
+    "EventData",
+    "IService",
+    "ServiceFactory",
+    "ServiceLifetime",
+    "ContextData",
+    "PluginMetadata",
+    "IPlugin",
+    "HealthStatus",
+    "HealthCheckResult",
+    "HealthCheck",
+    "ConfigValue",
+    "LogRecord",
+    "Ok",
+    "Err",
+    "Result",
+    # Events
+    "EventBus",
+    "get_event_bus",
+    "initialize_event_bus",
+    # Container
+    "Container",
+    "get_container",
+    "initialize_container",
+    # Context
+    "OperationContext",
+    "ContextManager",
+    "context_scope",
+    "get_correlation_id",
+    "get_operation_id",
+    "get_user_id",
+    # Health
+    "get_health_registry",
+]
